@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Multi table
+{% endblock %}
+
+{% block body %}
+
+    {% if action == "*" %}
+        <h1>{{ num1 }} * {{ num2 }} = {{ res }}</h1>
+
+        {% elif action == "div" %}
+            <h1>{{ num1 }} / {{ num2 }} = {{ res }}</h1>
+
+            {% elif action == "+" %}
+                <h1>{{ num1 }} + {{ num2 }} = {{ res }}</h1>
+
+                {% elif action == "-" %}
+                    <h1>{{ num1 }} - {{ num2 }} = {{ res }}</h1>
+
+                    {% else %}
+                        <h2>wrong</h2>
+    {% endif %}
+
+{% endblock %}
