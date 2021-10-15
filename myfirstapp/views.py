@@ -1,26 +1,20 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-users_list = []
+class myView(APIView):
+    def get(self, *args, **kwargs):
+        print(self.request.query_params)
+        return Response({"msg": "Hello from GET"})
 
-def hello(request):
-    return render(request, "hello.html")
+    def post(self, *args, **kwargs):
+        print(self.request.data)
+        return Response({"msg": "Hello from POST"})
 
-# def users(request):
-#     return render(request, "users.html")
+    def put(self, *args, **kwargs):
+        return Response({"msg": "Hello from PUT"})
 
-def users(request, name):
-    users_list.append(name)
-    check = False if len(users_list) > 3 else True
-    return render(request, "users.html", {"xxx": name, "users": users_list, "check": check})
+    def patch(self, *args, **kwargs):
+        return Response({"msg": "Hello from PATCH"})
 
-def multi(request, num1, action, num2):
-    global res
-    if action == "*":
-        res = int(num1 * num2)
-    elif action == "div":
-        res = int(num1 / num2)
-    elif action == "+":
-        res = int(num1 + num2)
-    elif action == "-":
-        res = int(num1 - num2)
-    return render(request, "Multi_table.html", {"num1": num1, "action": action, "num2": num2, "res": res})
+    def delete(self, *args, **kwargs):
+        return Response({"msg": "Hello from DELETE"})
