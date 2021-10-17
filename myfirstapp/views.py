@@ -1,15 +1,18 @@
 from django.shortcuts import render
 
-def multi(request, num1, action, num2, num3):
+def multi(request, num1, action, num2):
+
+    global res
 
     if action == "*":
-        res = f"{num1} * {num2} = {num3}"
-        return res
+        res = f"{num1} * {num2} = {num1*num2}"
+    elif action == "div":
+        res = f"{num1} / {num2} = {num1/num2}"
+    elif action == "+":
+        res = f"{num1} + {num2} = {num1+num2}"
+    elif action == "-":
+        res = f"{num1} - {num2} = {num1-num2}"
+    else:
+        res = "wrong"
 
-    # elif action == "div":
-    #     res = int(num1 / num2)
-    # elif action == "+":
-    #     res = int(num1 + num2)
-    # elif action == "-":
-    #     res = int(num1 - num2)
-    return render(request, "Multi_table.html", {"num1": num1, "action": action, "num2": num2, "num3": num3})
+    return render(request, "Multi_table.html", {"num1": num1, "action": action, "num2": num2, "res": res})
