@@ -2,8 +2,6 @@ from django.shortcuts import render
 
 def multi(request, num1, action, num2):
 
-    global res
-
     if action == "*":
         res = f"{num1} * {num2} = {num1*num2}"
     elif action == "div":
