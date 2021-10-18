@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myfirstapp.views import CarListCreateView, CarRetrieveUpdateDestroyView
+from myfirstapp.views import ComputerListCreateView, ComputerRetrieveUpdateDestroyView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('cars', CarListCreateView.as_view()),
-    path('cars/<int:pk>', CarRetrieveUpdateDestroyView.as_view())
+    path('computer', ComputerListCreateView.as_view()),
+    path('computer/<int:pk>', ComputerRetrieveUpdateDestroyView.as_view())
 ]
 # http://localhost:8000/
