@@ -1,10 +1,10 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
-from .models import CarModel
+from .models import PlaneModel
 
-class CarSerializer(ModelSerializer):
+class PlaneSerializer(ModelSerializer):
     class Meta:
-        model = CarModel
+        model = PlaneModel
         fields = "__all__"
 
     def validate(self, data):
@@ -17,7 +17,8 @@ class CarSerializer(ModelSerializer):
             raise serializers.ValidationError("Error 2005")
         return year
 
-class Car2Serializer(ModelSerializer):
-    class Meta:
-        model = CarModel
-        fields = ("id", "brand")
+
+# class Car2Serializer(ModelSerializer):
+#     class Meta:
+#         model = CarModel
+#         fields = ("id", "brand")

@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cars', include("cars.urls"))
+    path('planes', include("planes.urls"))
 ]
 # http://localhost:8000/
