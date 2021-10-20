@@ -8,10 +8,12 @@ from .serializers import PlaneSerializer
 class PlaneListCreateView(APIView):
 
     def get(self, *args, **kwargs):
-        planes = PlaneModel.objects.all()
-        # planes = planes.objects.filter(year__gte=2020).order_by("brand")[1:]
         # planes = PlaneModel.objects.filter(year__gte=2019).order_by("brand").exclude(year=2020)
-        # planes = planes.filter(brand__istartswith="c")
+        # planes = planes.objects.filter(year__gte=2020).order_by("brand")[1:]
+        planes = PlaneModel.objects.all()
+        year = self.request.query_params.get("year")
+        if year:
+            planes = planes.filter(year__exact=year)
         serializer = PlaneSerializer(instance=planes, many=True)
         return Response(serializer.data, status.HTTP_200_OK)
 

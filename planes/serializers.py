@@ -1,11 +1,17 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+
 from .models import PlaneModel
 
 class PlaneSerializer(ModelSerializer):
     class Meta:
         model = PlaneModel
         fields = "__all__"
+
+# class Plane2Serializer(ModelSerializer):
+#     class Meta:
+#         model = PlaneModel
+#         fields = ("id", "brand")
 
     def validate(self, data):
         if data.get("model") == data.get("brand"):
@@ -18,7 +24,3 @@ class PlaneSerializer(ModelSerializer):
         return year
 
 
-# class Car2Serializer(ModelSerializer):
-#     class Meta:
-#         model = CarModel
-#         fields = ("id", "brand")
