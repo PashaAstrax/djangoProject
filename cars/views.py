@@ -8,10 +8,8 @@ from .serializers import CarSerializer, Car2Serializer
 class CarListCreateView(APIView):
 
     def get(self, *args, **kwargs):
-        # cars = CarModel.objects.all()
-        # cars = CarModel.objects.filter(year__gte=2020).order_by("brand")[1:]
-        cars = CarModel.objects.filter(year__gte=2020).order_by("brand").exclude(year=2020)
-        cars = cars.filter(brand__istartswith="c")
+        # cars = CarModel.objects.filter(year__gte=2020).order_by("brand").exclude(year=2020)
+        cars = CarModel.objects.all()
         serializer = CarSerializer(instance=cars, many=True)
         return Response(serializer.data, status.HTTP_200_OK)
 
