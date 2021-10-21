@@ -35,6 +35,18 @@ class PlaneRetrieveUpdateDestroyView(APIView):
         serializer = PlaneSerializer(instance=plane)
         return Response(serializer.data, status.HTTP_200_OK)
 
+    def put(self, *args, **kwargs):
+        pk = kwargs.get("pk")
+        data = self.request.data
+        exists = PlaneModel.objects.filter(pk=pk).exists()
+        if not exists:
+            return Response("Plane with this id is not found", status.HTTP_404_NOT_FOUND)
+        plane = PlaneModel.objects.get(pk=pk)
+        serializer = PlaneSerializer(instance=plane, data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status.HTTP_200_OK)
+
     def patch(self, *args, **kwargs):
         pk = kwargs.get("pk")
         data = self.request.data
