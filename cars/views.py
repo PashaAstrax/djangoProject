@@ -5,7 +5,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from .models import CarModel
-from .serializers import CarSerializer, Car2Serializer
+from .serializers import CarSerializer
 
 # class CarListCreateView(APIView):
 #
@@ -66,7 +66,7 @@ from .serializers import CarSerializer, Car2Serializer
 #         return Response("car deleted", status=status.HTTP_204_NO_CONTENT)
 
 class CarListCreateView(ListCreateAPIView):
-    queryset = CarModel.objects.all()
+    # queryset = CarModel.objects.all()
     serializer_class = CarSerializer
 
     def get_queryset(self):
