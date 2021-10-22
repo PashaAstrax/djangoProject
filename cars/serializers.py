@@ -17,7 +17,7 @@ class CarSerializer(ModelSerializer):
             raise serializers.ValidationError("Error 2005")
         return year
 
-class Car2Serializer(ModelSerializer):
-    class Meta:
-        model = CarModel
-        fields = ("id", "brand")
+# class Car2Serializer(ModelSerializer):
+#     class Meta:
+#         model = CarModel
+#         fields = ("id", "brand")
