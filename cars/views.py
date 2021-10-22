@@ -71,9 +71,12 @@ class CarListCreateView(ListCreateAPIView):
 
     def get_queryset(self):
         year = self.request.query_params.get("year")
+        auto_park = self.request.query_params.get("AutoParkId")
         qs = CarModel.objects.all()
         if year:
             qs = qs.filter(year__exact=year)
+        if auto_park:
+            qs = qs.filter(autopark_id=auto_park)
         return qs
 
     # def get(self, *args, **kwargs):
