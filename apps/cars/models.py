@@ -1,6 +1,8 @@
-from django.db import models
 from django.core import validators as V
-from autopark.models import AutoParkModel
+from django.db import models
+
+from apps.autopark.models import AutoParkModel
+
 
 class CarModel(models.Model):
     class Meta:

@@ -31,7 +31,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
 
-
+AUTH_USER_MODEL = "users.UserModel"
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,9 +44,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-    'cars',
-    'users',
-    'autopark',
+    'apps.cars',
+    'apps.users',
+    'apps.autopark',
+    'apps.profile'
 ]
 
 MIDDLEWARE = [
