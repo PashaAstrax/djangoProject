@@ -6,4 +6,5 @@ from .models import ProfileModel
 class ProfileSerializer(ModelSerializer):
     class Meta:
         model = ProfileModel
-        fields = "__all__"
+        # fields = "__all__"
+        exclude = ("user",)
